@@ -1,16 +1,13 @@
-import express from 'express'
-import 'dotenv/config'
-import cors from 'cors'
-import morgan from 'morgan'
+import startApolloServer  from "./app";
+import { typeDefs,resolvers } from "./graphql/index";
 
-const app = express();
+startApolloServer(typeDefs,resolvers)
 
-app.use(express.json());
-app.use(morgan('dev'));
-app.use(cors())
+// import express from "express";
 
-app.use('/',(req:any,res:any)=>{
-  res.send('Hello world')
-});
+// const app = express();
 
-export default app;
+// app.use('/',(req:any,res:any)=> res.send('Hello world'))
+// app.listen(3001,()=>{
+//   console.log(3001)
+// })

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
-    "start": "nodemon ./src/app.ts"
+    "start": "nodemon ./src/index.ts",
+    "compile": "nodemon ./src/graphql.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.10.1",
