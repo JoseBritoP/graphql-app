@@ -1,35 +1,56 @@
-export const typeDefs = `#graphql
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+// import { gql } from 'graphql-tag'
+// export const typeDefs = gql`#graphql
+//   type Book {
+//     title: String
+//     author: String
+//   }
+//   type Project {
+//     _id:ID
+//     name:String
+//     description:String
+//     createAt:String
+//     updateAt:String
+//   }
 
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
+//   type Query {
+//     books: [Book]
+//   }
+//   type Mutation {
+//     createProject(name:String,description:String):Project
+//   }
+// `;
 
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
+// const books = [
+//   {
+//     title: 'The Awakening',
+//     author: 'Kate Chopin',
+//   },
+//   {
+//     title: 'City of Glass',
+//     author: 'Paul Auster',
+//   },
+// ];
 
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
+// // Resolvers define how to fetch the types defined in your schema.
+// // This resolver retrieves books from the "books" array above.
+// const createProject = (_:any,args:any) => {
+//   console.log(args)
+//   return {
 
-// Resolvers define how to fetch the types defined in your schema.
-// This resolver retrieves books from the "books" array above.
-export const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
+//   }
+// }
+// export const resolvers = {
+//   Query: {
+//     books: () => books,
+//   },
+//   Mutation: {
+//     createProject
+//   }
+// };
+
+import { typeDefs } from "./typeDefs";
+import { resolvers } from "./resolvers";
+
+export {
+  resolvers,typeDefs
+}
