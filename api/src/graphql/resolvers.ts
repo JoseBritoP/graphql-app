@@ -1,5 +1,6 @@
-import { createProject,getProjects,getProject,deleteProject } from "../controllers/Project";
-import { createTask,getTasks,getTask,deleteTask } from "../controllers/Task";
+import { createProject,getProjects,getProject,deleteProject,updateProject } from "../controllers/Project";
+import { createTask,getTasks,getTask,deleteTask,updateTask } from "../controllers/Task";
+
 const books = [
   {
     title: 'The Awakening',
@@ -11,9 +12,6 @@ const books = [
   },
 ];
 
-// Resolvers define how to fetch the types defined in your schema.
-// This resolver retrieves books from the "books" array above.
-
 export const resolvers = {
   Query: {
     books: () => books,
@@ -24,8 +22,10 @@ export const resolvers = {
   },
   Mutation: {
     createProject,
-    createTask,
+    updateProject,
     deleteProject,
+    createTask,
+    updateTask,
     deleteTask
   }
 };
