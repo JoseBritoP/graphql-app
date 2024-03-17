@@ -1,5 +1,5 @@
-import { createProject,getProjects,getProject } from "../controllers/Project";
-import { createTask,getTasks,getTask } from "../controllers/Task";
+import { createProject,getProjects,getProject,deleteProject } from "../controllers/Project";
+import { createTask,getTasks,getTask,deleteTask } from "../controllers/Task";
 const books = [
   {
     title: 'The Awakening',
@@ -24,6 +24,8 @@ export const resolvers = {
   },
   Mutation: {
     createProject,
-    createTask
+    createTask,
+    deleteProject,
+    deleteTask
   }
 };
