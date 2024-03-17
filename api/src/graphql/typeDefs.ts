@@ -24,8 +24,11 @@ export const typeDefs = gql`#graphql
   type Query {
     books: [Book]
     getProjects:[Project]
+    getProject(_id:ID!):Project
     getTasks:[Task]
+    getTask(_id:ID!):Task
   }
+
   type Mutation {
     createProject(name:String,description:String):Project
     createTask(title:String,projectId:ID):Task

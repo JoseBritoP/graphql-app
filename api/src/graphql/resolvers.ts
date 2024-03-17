@@ -1,5 +1,5 @@
-import { createProject,getProjects } from "../controllers/Project";
-import { createTask,getTasks } from "../controllers/Task";
+import { createProject,getProjects,getProject } from "../controllers/Project";
+import { createTask,getTasks,getTask } from "../controllers/Task";
 const books = [
   {
     title: 'The Awakening',
@@ -18,7 +18,9 @@ export const resolvers = {
   Query: {
     books: () => books,
     getProjects,
-    getTasks
+    getProject,
+    getTasks,
+    getTask
   },
   Mutation: {
     createProject,

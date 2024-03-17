@@ -7,3 +7,13 @@ export const getTasks = async () => {
 
   return tasks
 };
+
+export const getTask = async (_:any,{_id}:{_id:string}) => {
+  const task = await Task.findById({
+    _id
+  });
+
+  if(!task) throw new Error(`Task not found`);
+
+  return task
+};
