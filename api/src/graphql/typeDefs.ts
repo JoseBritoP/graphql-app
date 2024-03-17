@@ -4,6 +4,7 @@ export const typeDefs = gql`#graphql
     title: String
     author: String
   }
+
   type Project {
     _id:ID
     name:String
@@ -12,11 +13,21 @@ export const typeDefs = gql`#graphql
     updatedAt:String
   }
 
+  type Task {
+    _id:ID
+    title:String
+    projectId:ID
+    createdAt:String
+    updatedAt:String
+  }
+
   type Query {
-    books: [Book],
+    books: [Book]
     getProjects:[Project]
+    getTasks:[Task]
   }
   type Mutation {
     createProject(name:String,description:String):Project
+    createTask(title:String,projectId:ID):Task
   }
 `;
