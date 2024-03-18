@@ -11,12 +11,14 @@ export const typeDefs = gql`#graphql
     description:String
     createdAt:String
     updatedAt:String
+    # Agree Tasks
+    tasks:[Task]
   }
 
   type Task {
     _id:ID
     title:String
-    projectId:ID
+    project:Project
     createdAt:String
     updatedAt:String
   }

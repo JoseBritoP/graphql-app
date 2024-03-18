@@ -1,6 +1,7 @@
-import { createProject,getProjects,getProject,deleteProject,updateProject } from "../controllers/Project";
-import { createTask,getTasks,getTask,deleteTask,updateTask } from "../controllers/Task";
-
+import { createProject,getProjects,getProject,deleteProject,updateProject,tasks } from "../controllers/Project";
+import { createTask,getTasks,getTask,deleteTask,updateTask,project } from "../controllers/Task";
+import Project from "../models/Project";
+import Task from "../models/Task";
 const books = [
   {
     title: 'The Awakening',
@@ -27,5 +28,16 @@ export const resolvers = {
     createTask,
     updateTask,
     deleteTask
+  },
+
+  // Agree Tasks
+  Project:{
+    tasks
+  },
+
+  // Agree Project
+  Task:{
+    project
   }
 };
+
