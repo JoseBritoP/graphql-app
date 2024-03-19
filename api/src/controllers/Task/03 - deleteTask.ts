@@ -8,8 +8,5 @@ export const deleteTask = async (_:any,{_id}:{_id:string}) => {
 
   if(!deletedTask) throw new Error(`Task to delete not found`);
 
-  return {
-    message:'Task delete successfully',
-    deletedTask
-  };
+  return deletedTask
 };
