@@ -1,9 +1,10 @@
-import React from 'react'
+import { ProjectList,ProjectForm } from "../components"
 
 export default function Projects() {
   return (
     <div>
-      <h1>Hello projects</h1>
+      <ProjectForm/>
+      <ProjectList/>
     </div>
   )
 }
