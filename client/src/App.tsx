@@ -11,7 +11,6 @@ const client = new ApolloClient({
 const App = () => {
 
   // TODO: endpoint env
-  // TODO: Delete project
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
