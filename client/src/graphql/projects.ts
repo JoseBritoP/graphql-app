@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_PROJECTS = gql`
-  {
+  query getProjects  {
     getProjects {
         _id,
         name,
@@ -28,4 +28,16 @@ export const CREATE_PROJECT = gql`
       _id,name,description
     }
   }
+`
+
+export const DELETE_PROJECT = gql `
+  mutation($id: ID!) {
+  deleteProject(_id: $id) {
+    _id,
+    name,
+    tasks {
+      _id,title
+    }
+  }
+}
 `
