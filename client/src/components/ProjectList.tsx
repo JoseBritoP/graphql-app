@@ -13,10 +13,10 @@ export default function ProjectList() {
     <div>
       <h1>Project List</h1>
       {
-        data.getProjects.map((project:{id:string,name:string,description:string,createdAt:string,updatedAt:string})=> (
+        data.getProjects.map((project:{_id:string,name:string,description:string,createdAt:string,updatedAt:string})=> (
         <ProjectCard
-          key={project.id}
-          id={project.id}
+          key={project._id}
+          _id={project._id}
           name={project.name}
           description={project.description}
           createdAt={project.createdAt}
