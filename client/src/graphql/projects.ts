@@ -12,6 +12,16 @@ export const GET_PROJECTS = gql`
   }
 `
 
+export const GET_PROJECT_BY_ID = gql`
+  query ($id: ID!) {
+    getProject(_id: $id) {
+      _id,name,description,tasks {
+        _id,title
+      }
+    }
+  }
+`
+
 export const CREATE_PROJECT = gql`
   mutation($name: String, $description: String) {
     createProject(name: $name,description: $description) {
