@@ -1,6 +1,7 @@
-import ProjectForm from "./ProjectForm";
-import ProjectList from "./ProjectList";
-
+import ProjectForm from "./Project/ProjectForm";
+import ProjectList from "./Project/ProjectList";
+import TaskList from "./Task/TaskList";
+import TaskForm from "./Task/TaskForm";
 export {
-  ProjectForm,ProjectList
+  ProjectForm,ProjectList,TaskForm,TaskList
 }
