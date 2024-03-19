@@ -8,7 +8,7 @@ interface Props {
 }
 const TaskList = ({tasks}:Props) => {
   return (
-    <div>
+    <section className="flex flex-col gap-4">
       {tasks.map((task)=>(
         <TaskCard
           key={task._id}
@@ -17,7 +17,7 @@ const TaskList = ({tasks}:Props) => {
         />
       ))}
       {!tasks.length && <p className="text-slate-400 text-lg underline py-2">No Tasks</p>}
-    </div>
+    </section>
   )
 }
 
