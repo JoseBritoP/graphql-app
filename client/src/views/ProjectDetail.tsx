@@ -35,13 +35,17 @@ export default function ProjectDetail() {
   }; 
   
   return (
-    <div key={_id} className="p-4 flex flex-col gap-4 items-start">
+    <section key={_id} className="p-10 rounded-md flex flex-col gap-4 items-start justify-center bg-slate-950 ">
+      <div className="flex w-full px-2 justify-between items-center">
       <button onClick={handleGoBack} className="bg-sky-600 px-3 py-1 rounded-md hover:cursor-pointer hover:bg-sky-700 ease-in-out">Back</button>
+      <button className="bg-red-600 px-3 py-1 rounded-md hover:bg-red-700 ease-in-out" >Delete</button>
+      </div>
+      <div>
       <h1 className="text-white text-4xl">{name}</h1>
       <p className="text-xl py-2">{!description ? "No description" : description}</p>
-      <button className="bg-red-600 px-2 py-1 rounded-sm hover:bg-red-700 ease-in-out" >Delete</button>
+      </div>
       <TaskForm/>
       <TaskList tasks={tasks}/>
-    </div>
+    </section>
   )
 }

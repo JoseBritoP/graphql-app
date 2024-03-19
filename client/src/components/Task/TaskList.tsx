@@ -8,7 +8,7 @@ interface Props {
 }
 const TaskList = ({tasks}:Props) => {
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 bg-slate-900 p-4 w-full items-start shadow-md shadow-slate-800">
       {tasks.map((task)=>(
         <TaskCard
           key={task._id}

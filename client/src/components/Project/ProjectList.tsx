@@ -10,9 +10,7 @@ export default function ProjectList() {
   if(error) return <p className="text-white">Error</p>
 
   return (
-    <main className="flex flex-col gap-4 p-4">
-      <h1 className="text-2xl font-bold">Project List</h1>
-      <section className="flex flex-col flex-wrap gap-4 justify-start">
+    <section className="overflow-y-auto h-[50rem] flex flex-col gap-4 p-4 w-full px-5">
         {
           data.getProjects.map((project:{_id:string,name:string,description:string,createdAt:string,updatedAt:string})=> (
             <ProjectCard
@@ -25,7 +23,6 @@ export default function ProjectList() {
             />
             ))
           }
-      </section>
-    </main>
+    </section>
   )
 }

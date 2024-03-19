@@ -35,10 +35,10 @@ export default function TaskForm() {
     e.target.title.focus();
   }
   return (
-    <form onSubmit={handleSubmit} className='flex gap-x-6'>
+    <form onSubmit={handleSubmit} className='flex items-center gap-x-6'>
       <label htmlFor="title">Title</label>
-      <input type="text" name="title" id="title" className='px-2 rounded-sm text-black' placeholder='Title Task' onChange={handleChange} />
-      <button className='bg-emerald-600 hover:bg-emerald-700'>Add tasks</button>
+      <input type="text" name="title" id="title" className='text-lg px-2 rounded-sm text-black' placeholder='Title Task' onChange={handleChange} />
+      <button className='bg-emerald-600 hover:bg-emerald-700 p-1 rounded-sm px-2 disabled:bg-zinc-600 disabled:hover:cursor-default' disabled={!form.title}>Add tasks</button>
     </form>
   )
 }
