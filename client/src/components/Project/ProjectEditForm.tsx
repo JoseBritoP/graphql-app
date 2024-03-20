@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { useMutation } from '@apollo/client';
-import { UPDATE_PROJECT,GET_PROJECTS } from '../../graphql/projects';
+import useProjectEditForm from '../../hooks/Project/useProjectEditForm';
 
 interface Props {
   project: {
@@ -13,43 +11,10 @@ interface Props {
 
 export default function ProjectEditForm({project,handleModal}:Props) {
 
-  console.log(project.name)
+  const { form, loading, error, handleChange, handleSubmit } = useProjectEditForm({project,handleModal})
 
-  const [form,setForm] = useState({
-    name:project.name,
-    description:project.description
-  });
-
-  const [updateProject,{ loading, error } ] = useMutation(UPDATE_PROJECT, {
-    refetchQueries:[
-      {
-        query:GET_PROJECTS
-      },
-      "GetProjects"
-    ]
-    
-  })
-
-  const handleChange = (e:any) => {
-    const name = e.target.name;
-    const value = e.target.value
-    setForm({
-      ...form,
-      [name]:value
-    })
-  };
-
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    updateProject({
-      variables:{
-        id:project._id,
-        name:form.name,
-        description:form.description
-      }
-    });
-    handleModal();
-  }
+  if(loading) return <p className='text-white text-xl'>Loading...</p>
+  
   return (
     <div className='flex flex-col gap-y-2'>
       <h1 className='text-center text-xl'>Edit Form</h1>
