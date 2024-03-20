@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { useParams } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 import { CREATE_TASK } from '../../graphql/tasks'
@@ -13,7 +13,7 @@ export default function useTaskForm() {
     refetchQueries:['getProject']
   })
 
-  const handleChange = (e:any) => {
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name
     const value = e.target.value
     setForm({
@@ -22,17 +22,19 @@ export default function useTaskForm() {
     })
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await createTask({
       variables:{
-        title:e.target.title.value,
+        title:form.title,
         projectId:id
       }
     });
-
-    e.target.reset();
-    e.target.title.focus();
+    setForm({
+      title:''
+    })
+    // e.target.reset();
+    // e.target.title.focus();
   };
 
   return { form, handleChange, handleSubmit }

@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { useMutation } from '@apollo/client'
 import { UPDATE_TASK } from '../../graphql/tasks'
 
@@ -12,7 +12,7 @@ export default function useTaskEditForm({id, handleModal }:{ id:string, handleMo
     refetchQueries:['getProject']
   })
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = e.target.name
     const value = e.target.value
     setForm({
@@ -21,16 +21,19 @@ export default function useTaskEditForm({id, handleModal }:{ id:string, handleMo
     })
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await updateTask({
       variables:{
         id,
-        title:e.target.title.value,
+        title:form.title,
       }
     });
 
-    e.target.reset();
+    // e.target.reset();
+    setForm({
+      title:''
+    })
     handleModal()
   };
 

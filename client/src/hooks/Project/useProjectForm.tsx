@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { useMutation } from '@apollo/client';
 import { CREATE_PROJECT,GET_PROJECTS } from '../../graphql/projects';
 
@@ -20,7 +20,7 @@ export default function useProjectForm() {
     
   })
 
-  const handleChange = (e:any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const name = e.target.name;
     const value = e.target.value
     setForm({
@@ -29,7 +29,7 @@ export default function useProjectForm() {
     })
   };
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     createProject({
