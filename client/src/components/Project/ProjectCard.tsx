@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom"
-import { useMutation } from "@apollo/client"
-import { DELETE_PROJECT } from "../../graphql/projects"
+import useProjectCard from "../../hooks/Project/useProjectCard"
 
 interface Props {
   _id:string,
@@ -11,19 +9,9 @@ interface Props {
 }
 
 export default function ProjectCard({_id,name,description}:Props) {
-  const navigate = useNavigate();
 
-  const [deleteProject] = useMutation(DELETE_PROJECT,{
-    refetchQueries:["getProjects"]
-  });
+  const { navigate, handleDelete } = useProjectCard({_id});
 
-  const handleDelete = () => {
-    deleteProject({
-      variables:{
-        id:_id
-      }
-    })
-  };
   return (
     <div key={_id}  className="bg-slate-950 p-4 rounded-md hover:bg-slate-900 hover:cursor-pointer ease-in-out shadow-lg shadow-black flex justify-between">
       <div onClick={()=>navigate(`/projects/detail/${_id}`)} className="w-full">
