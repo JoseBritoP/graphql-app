@@ -1,42 +1,9 @@
-import { useState } from 'react'
-import { useMutation } from '@apollo/client';
-import { UPDATE_TASK } from '../../graphql/tasks';
+import useTaskEditForm from '../../hooks/Task/useTaskEditForm';
 
-export default function TaskEditForm({id, setModal }:{ id:string, setModal:any }) {
+export default function TaskEditForm({id, handleModal }:{ id:string, handleModal:()=>void }) {
 
-  const [form,setForm] = useState({
-    title:''
-  });
-
-  const [updateTask] = useMutation(UPDATE_TASK,{
-    refetchQueries:['getProject']
-  })
-
-  const handleChange = (e:any) => {
-    const name = e.target.name
-    const value = e.target.value
-    setForm({
-      ...form,
-      [name]:value
-    })
-  };
-
-  const handleSubmit = async (e:any) => {
-    e.preventDefault();
-    await updateTask({
-      variables:{
-        id,
-        title:e.target.title.value,
-      }
-    });
-
-    e.target.reset();
-    setModal(false)
-  };
-
-  const handleCancel = () =>{
-    setModal(false)
-  }
+  const { form, handleSubmit, handleCancel, handleChange } = useTaskEditForm({id,handleModal})
+ 
   return (
     <form onSubmit={handleSubmit} className='bg-slate-800 p-4 flex items-center justify-between w-full gap-x-6'>
       <div className='flex gap-x-4'>
