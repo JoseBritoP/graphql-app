@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import { useMutation } from "@apollo/client"
-import { DELETE_TASK } from "../../graphql/tasks"
+import useTaskCard from '../../hooks/Task/useTaskCard'
 import TaskEditForm from './TaskEditForm'
 
 interface TaskProps {
@@ -10,22 +8,8 @@ interface TaskProps {
 
 export default function TaskCard({_id,title}:TaskProps) {
 
-  const [modal,setModal] = useState(false);
+  const { modal, handleDelete, handleModal } = useTaskCard({_id})
 
-  const [deleteTask] = useMutation(DELETE_TASK,{
-  refetchQueries:["getProject"]
-  });
-
-   const handleDelete = () => {
-    deleteTask({
-      variables: {
-        id:_id
-      }
-    })
-   };
-   const handleModal = () => {
-    setModal(!modal)
-   }
   return (
     <div key={_id} className="flex gap-x-6 justify-between rounded-sm items-center w-full">
       <h2 className="text-lg font-medium">{title}</h2>
