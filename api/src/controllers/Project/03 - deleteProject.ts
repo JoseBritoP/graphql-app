@@ -9,8 +9,6 @@ export const deleteProject = async (_:any,{_id}:{_id:string}) => {
   if(!deletedProject) throw new Error(`Project not found`);
 
   await Task.deleteMany({projectId:deletedProject._id});
-  return {
-    message:'Project delete successfully',
-    deletedProject
-  }
+  
+  return deletedProject;
 };
