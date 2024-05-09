@@ -6,10 +6,10 @@ export default function ProjectForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col rounded-md text-black gap-4 p-4 w-2/5 bg-slate-900/80 h-60 py-6 shadow shadow-gray-600"
+      className="flex flex-col rounded-md text-black gap-4 p-4 w-full lg:w-3/5 bg-slate-900/80 max-h-72 py-6 shadow shadow-gray-600"
     >
       {error && <p className="text-red-600">{error.message}</p>}
-      <div className="flex items-center gap-x-4">
+      <div className="flex flex-col md:flex-row lg:items-center gap-x-4">
         <label htmlFor="name" className="text-gray-200 font-semibold text-lg">
           Name
         </label>
@@ -17,7 +17,7 @@ export default function ProjectForm() {
           type="text"
           name="name"
           id="name"
-          className="px-4 py-1 rounded-sm"
+          className="px-4 py-1 rounded-sm w-full"
           placeholder="Write a title"
           onChange={handleChange}
           value={form.name}

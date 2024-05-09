@@ -1,3 +1,4 @@
+import { FaDeleteLeft } from "react-icons/fa6";
 import useProjectCard from "../../hooks/Project/useProjectCard"
 
 interface Props {
@@ -18,7 +19,7 @@ export default function ProjectCard({_id,name,description}:Props) {
         <h2 className="text-xl font-semibold">{name}</h2>
         <p className="text-base text-slate-300 text-balance">{!description ? 'No description' : description }</p>
       </div>
-      <button aria-label="Delete Project" className="bg-red-500 hover:bg-red-400 px-2 py-1 rounded-md" onClick={handleDelete}>Delete</button>
+      <button aria-label="Delete Project" className="bg-red-500 hover:bg-red-400 px-2 md:px-4 py-1 rounded-md" onClick={handleDelete}><FaDeleteLeft size={24}/></button>
     </div>
   )
 }

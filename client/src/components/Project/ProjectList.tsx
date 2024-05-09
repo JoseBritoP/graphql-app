@@ -8,7 +8,7 @@ export default function ProjectList() {
   if (loading) return <p className="text-white">Loading...</p>;
 
   return (
-    <article className="overflow-y-auto h-[50rem] flex flex-col gap-4 w-full px-5">
+    <article className="overflow-y-auto h-[28rem] lg:h-[45rem] flex flex-col gap-4 w-full lg:px-5">
       <section className="h-auto max-h-[45rem] overflow-y-auto bg-slate-800 flex flex-col  gap-y-4 justify-start w-full">
         {data && data.getProjects.map(
           (project: {
