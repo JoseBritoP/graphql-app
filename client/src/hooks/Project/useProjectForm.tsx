@@ -34,8 +34,8 @@ export default function useProjectForm() {
 
     createProject({
       variables:{
-        name:form.name,
-        description:form.description
+        name:form.name.trim(),
+        description:form.description.trim()
       }
     });
     
