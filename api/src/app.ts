@@ -24,7 +24,7 @@ async function startApolloServer(typeDefs:any,resolvers:any) {
 
   await server.start();
 
-  app.use('/graphql',cors<cors.CorsRequest>(),express.json(),expressMiddleware(server))
+  app.use('/graphql',morgan('dev'),cors<cors.CorsRequest>(),express.json(),expressMiddleware(server))
   
   await new Promise<void>((resolve) => htppServer.listen({
     port: process.env.PORT || 3001
