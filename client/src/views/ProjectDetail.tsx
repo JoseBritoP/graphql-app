@@ -55,7 +55,11 @@ export default function ProjectDetail() {
         <h1 className="text-gray-200 font-bold text-4xl">{name}</h1>
         <p className="text-xl text-gray-400 py-2">{!description ? "No description" : description}</p>
       </section>
-      {modal && <ProjectEditForm project={data.getProject} handleModal={handleModal}/>}
+      {modal && (
+        <div className='relative w-full'>
+          <ProjectEditForm project={data.getProject} handleModal={handleModal}/>
+        </div>
+      )}
       <TaskForm/>
       <TaskList tasks={tasks}/>
     </article>

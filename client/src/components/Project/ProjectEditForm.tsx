@@ -16,8 +16,8 @@ export default function ProjectEditForm({project,handleModal}:Props) {
   if(loading) return <p className='text-white text-xl'>Loading...</p>
   
   return (
-    <div className='flex flex-col gap-y-2 transition-all duration-300 ease-in-out'>
-      <h1 className='text-center text-xl font-bold'>Edit Form</h1>
+    <dialog open className='flex flex-col gap-y-2 transition-all duration-300 ease-in-out bg-gray-900 rounded-md p-2 '>
+      <h1 className='text-center text-xl font-bold text-gray-200'>Edit Form</h1>
       <form onSubmit={handleSubmit} className='flex flex-col rounded-md text-black gap-4 p-4 bg-slate-800 w-full h-60 py-6' >
         {error && <p className='text-red-600'>{error.message}</p>}
         <div className='flex items-center gap-x-4 w-full'>
@@ -29,12 +29,12 @@ export default function ProjectEditForm({project,handleModal}:Props) {
         <textarea name="description" id='description' placeholder='Write new description' value={form.description} className='resize-none px-4 py-1 rounded-sm' onChange={handleChange}/>
         </div>
         <div className='flex justify-between gap-x-4'>
-        <button className='text-white text-lg bg-emerald-600 hover:bg-emerald-700 p-1 rounded-sm px-2 disabled:bg-zinc-600 disabled:hover:cursor-default disabled:text-slate-950' disabled={!form.name && !form.description || form.name === project.name }>Save changes</button>
-        <button className='text-lg text-white bg-red-600 hover:bg-red-700 p-1 rounded-sm px-2 disabled:bg-zinc-600 disabled:hover:cursor-default' 
+        <button aria-label='Save changes' className='text-white text-lg bg-emerald-600 hover:bg-emerald-700 p-1 px-2 disabled:bg-zinc-600 font-bold uppercase rounded-md disabled:hover:cursor-default disabled:text-slate-950' disabled={!form.name.trim() && !form.description?.trim() || form.name.trim() === project.name.trim()  }>Save changes</button>
+        <button aria-label='Close modal' className='text-lg text-white bg-red-600 hover:bg-red-700 p-1 px-2 disabled:bg-zinc-600 disabled:hover:cursor-default font-bold rounded-md uppercase' 
             onClick={handleModal}
             >Cancel</button>
         </div>
       </form>
-    </div>
+    </dialog>
   )
 }
