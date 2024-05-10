@@ -42,7 +42,7 @@ export default function ProjectDetail() {
     setModal(!modal)
   }
   return (
-    <article key={_id} className="p-10 rounded-md flex flex-col gap-4 items-start justify-start bg-slate-950 h-[40rem] transition-all duration-300 ease-in ">
+    <article key={_id} className="p-10 rounded-md flex flex-col gap-4 items-start justify-start bg-slate-950 min-h-[40rem] h-auto max-h-[60rem]  transition-all duration-300 ease-in ">
       <section className="flex w-full px-2 justify-between items-center">
         <button aria-label='Back to home' onClick={handleGoBack} className="transition-colors duration-300 bg-sky-600 px-4 font-semibold uppercase py-2 rounded-md hover:cursor-pointer hover:bg-sky-700 ease-in-out">
           <FaBackward size={20} />

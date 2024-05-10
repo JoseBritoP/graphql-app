@@ -16,8 +16,8 @@ export default function ProjectEditForm({project,handleModal}:Props) {
   if(loading) return <p className='text-white text-xl'>Loading...</p>
   
   return (
-    <div className='flex flex-col gap-y-2'>
-      <h1 className='text-center text-xl'>Edit Form</h1>
+    <div className='flex flex-col gap-y-2 transition-all duration-300 ease-in-out'>
+      <h1 className='text-center text-xl font-bold'>Edit Form</h1>
       <form onSubmit={handleSubmit} className='flex flex-col rounded-md text-black gap-4 p-4 bg-slate-800 w-full h-60 py-6' >
         {error && <p className='text-red-600'>{error.message}</p>}
         <div className='flex items-center gap-x-4 w-full'>
